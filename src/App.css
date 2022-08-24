@@ -1,4 +1,9 @@
-.app-wrapper {
+.app__inner {
+    grid-area: content;
+    background-color: gainsboro;
+}
+
+.app__wrapper {
     display: grid;
     grid-template-rows: 150px 1fr;
     grid-template-columns: 2fr 10fr;
@@ -7,10 +12,3 @@
         "header header"
         "nav content";
 }
-
-
-
-
-
-
-
