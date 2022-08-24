@@ -1,7 +1,7 @@
-import "./Dialogs.css";
+import "./Dialogs.module.css";
 
 const Dialogs = ({}) => {
-  return <div></div>;
+  return <div>Dialogs</div>;
 };
 
 export default Dialogs;
