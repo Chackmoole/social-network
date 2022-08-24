@@ -5,27 +5,42 @@ const NavBar = () => {
   return (
     <nav className={styles.nav}>
       <div>
-        <NavLink className={styles.link} to="/profile">
+        <NavLink
+          to="/profile"
+          className={({ isActive }) => (isActive ? styles.active : styles.link)}
+        >
           Profiles
         </NavLink>
       </div>
       <div>
-        <NavLink className={styles.link} to="/dialogs">
+        <NavLink
+          to="/dialogs"
+          className={({ isActive }) => (isActive ? styles.active : styles.link)}
+        >
           Message
         </NavLink>
       </div>
       <div>
-        <NavLink className={styles.link} to="/news">
+        <NavLink
+          to="/news"
+          className={({ isActive }) => (isActive ? styles.active : styles.link)}
+        >
           News
         </NavLink>
       </div>
       <div>
-        <NavLink className={styles.link} to="/music">
+        <NavLink
+          to="/music"
+          className={({ isActive }) => (isActive ? styles.active : styles.link)}
+        >
           Music
         </NavLink>
       </div>
       <div>
-        <NavLink className={styles.link} to="/settings">
+        <NavLink
+          to="/settings"
+          className={({ isActive }) => (isActive ? styles.active : styles.link)}
+        >
           Settings
         </NavLink>
       </div>

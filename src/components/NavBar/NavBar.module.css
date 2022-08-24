@@ -8,3 +8,8 @@
     color: azure;
     text-decoration: none;
 }
+
+.active {
+    color: limegreen;
+    text-decoration: none;
+}
