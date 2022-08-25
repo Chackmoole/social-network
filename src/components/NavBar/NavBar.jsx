@@ -7,7 +7,9 @@ const NavBar = () => {
       <div>
         <NavLink
           to="/profile"
-          className={({ isActive }) => (isActive ? styles.active : styles.link)}
+          className={({ isActive }) =>
+            isActive ? `${styles.link} ${styles.active}` : `${styles.link}`
+          }
         >
           Profiles
         </NavLink>
@@ -15,7 +17,9 @@ const NavBar = () => {
       <div>
         <NavLink
           to="/dialogs"
-          className={({ isActive }) => (isActive ? styles.active : styles.link)}
+          className={({ isActive }) =>
+            isActive ? `${styles.link} ${styles.active}` : `${styles.link}`
+          }
         >
           Message
         </NavLink>
@@ -23,7 +27,9 @@ const NavBar = () => {
       <div>
         <NavLink
           to="/news"
-          className={({ isActive }) => (isActive ? styles.active : styles.link)}
+          className={({ isActive }) =>
+            isActive ? `${styles.link} ${styles.active}` : `${styles.link}`
+          }
         >
           News
         </NavLink>
@@ -31,7 +37,9 @@ const NavBar = () => {
       <div>
         <NavLink
           to="/music"
-          className={({ isActive }) => (isActive ? styles.active : styles.link)}
+          className={({ isActive }) =>
+            isActive ? `${styles.link} ${styles.active}` : `${styles.link}`
+          }
         >
           Music
         </NavLink>
@@ -39,7 +47,9 @@ const NavBar = () => {
       <div>
         <NavLink
           to="/settings"
-          className={({ isActive }) => (isActive ? styles.active : styles.link)}
+          className={({ isActive }) =>
+            isActive ? `${styles.link} ${styles.active}` : `${styles.link}`
+          }
         >
           Settings
         </NavLink>

@@ -1,0 +1,27 @@
+.dialogs {
+}
+
+.title {
+    margin-left: 32px;
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: 2fr 10fr;
+}
+
+.dialogsList {
+    list-style: none;
+}
+
+.dialogsItem {
+    padding: 8px;
+}
+
+.messagesList {
+
+}
+
+.messagesItem {
+    padding: 8px;
+}
