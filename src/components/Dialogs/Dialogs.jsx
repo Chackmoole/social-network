@@ -9,7 +9,7 @@ const Dialogs = ({}) => {
         <ul className={styles.dialogsList}>
           <DialogsItem dialogItem="Муся" />
           <DialogsItem dialogItem="Барбос" />
-          <DialogsItem dialogItem="Арчик" />
+          <DialogsItem dialogItem="Арчик" isActive={true} />
           <DialogsItem dialogItem="Марго" />
           <DialogsItem dialogItem="Дуся" />
           <DialogsItem dialogItem="Маркиза" />

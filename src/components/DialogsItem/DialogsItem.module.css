@@ -1,3 +1,7 @@
 .dialogsItem {
     padding: 8px;
 }
+
+.dialogsItemActive {
+    color: blue;
+}
