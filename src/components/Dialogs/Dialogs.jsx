@@ -1,5 +1,6 @@
 import styles from "./Dialogs.module.css";
 import DialogsItem from "../DialogsItem/DialogsItem";
+import MessagesItem from "../MessagesItem/MessagesItem";
 
 const Dialogs = ({}) => {
   return (
@@ -7,19 +8,19 @@ const Dialogs = ({}) => {
       <h2 className={styles.title}>Dialogs</h2>
       <div className={styles.wrapper}>
         <ul className={styles.dialogsList}>
-          <DialogsItem dialogItem="Муся" />
-          <DialogsItem dialogItem="Барбос" />
-          <DialogsItem dialogItem="Арчик" isActive={true} />
-          <DialogsItem dialogItem="Марго" />
-          <DialogsItem dialogItem="Дуся" />
-          <DialogsItem dialogItem="Маркиза" />
-          <DialogsItem dialogItem="Барон" />
-          <DialogsItem dialogItem="Дик" />
+          <DialogsItem dialogItem="Муся" id="1" />
+          <DialogsItem dialogItem="Барбос" id="2" />
+          <DialogsItem dialogItem="Арчик" id="3" isActive={true} />
+          <DialogsItem dialogItem="Марго" id="4" />
+          <DialogsItem dialogItem="Дуся" id="5" />
+          <DialogsItem dialogItem="Маркиза" id="6" />
+          <DialogsItem dialogItem="Барон" id="7" />
+          <DialogsItem dialogItem="Дик" id="8" />
         </ul>
         <ul className={styles.messagesList}>
-          <li className={styles.messagesItem}>Гав</li>
-          <li className={styles.messagesItem}>Гав-гав</li>
-          <li className={styles.messagesItem}>Р-р-р-р гав</li>
+          <MessagesItem message="Гав" />
+          <MessagesItem message="Гав-гав" />
+          <MessagesItem message="Р-р-р-р гав" />
         </ul>
       </div>
     </section>
