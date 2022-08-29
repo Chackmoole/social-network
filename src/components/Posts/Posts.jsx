@@ -1,6 +1,6 @@
 import Post from "../Post/Post";
 
-const postsData = [
+const posts = [
   {
     message: "Сообщение №1",
     likes: 10,
@@ -21,26 +21,18 @@ const postsData = [
   },
 ];
 
-const Posts = () => {
+const postsElements = posts.map((post) => {
   return (
-    <ul>
-      <Post
-        message={postsData[0].message}
-        likes={postsData[0].likes}
-        postAvatar={postsData[0].postAvatar}
-      />
-      <Post
-        message={postsData[1].message}
-        likes={postsData[1].likes}
-        postAvatar={postsData[1].postAvatar}
-      />{" "}
-      <Post
-        message={postsData[2].message}
-        likes={postsData[2].likes}
-        postAvatar={postsData[2].postAvatar}
-      />
-    </ul>
+    <Post
+      message={post.message}
+      likes={post.likes}
+      postAvatar={post.postAvatar}
+    />
   );
+});
+
+const Posts = () => {
+  return <ul>{postsElements}</ul>;
 };
 
 export default Posts;

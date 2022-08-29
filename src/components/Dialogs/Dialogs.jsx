@@ -13,26 +13,28 @@ const users = [
   { id: 8, name: "Дик" },
 ];
 
-const messagesItemData = [
-  { id: 1, messages: "Гав" },
-  { id: 2, messages: "Гав-гав" },
-  { id: 3, messages: "Р-р-р-р гав" },
+const messages = [
+  { id: 1, message: "Гав" },
+  { id: 2, message: "Гав-гав" },
+  { id: 3, message: "Р-р-р-р гав" },
 ];
+
+const usersElements = users.map((user) => {
+  return <DialogsItem dialogItem={user.name} id={user.id} />;
+});
+
+const dialogsElements = messages.map((message) => {
+  //тут как лучше с наименованием быть?
+  return <MessagesItem message={message.message} />;
+});
 
 const Dialogs = ({}) => {
   return (
     <section className={styles.dialogs}>
       <h2 className={styles.title}>Dialogs</h2>
       <div className={styles.wrapper}>
-        <ul className={styles.dialogsList}>
-          <DialogsItem dialogItem={users[0].name} id={users[0].id} />
-          <DialogsItem dialogItem={users[1].name} id={users[1].id} />
-        </ul>
-        <ul className={styles.messagesList}>
-          <MessagesItem message={messagesItemData[0].messagesItem} />
-          <MessagesItem message={messagesItemData[1].messagesItem} />
-          <MessagesItem message={messagesItemData[2].messagesItem} />
-        </ul>
+        <ul className={styles.dialogsList}>{usersElements}</ul>
+        <ul className={styles.messagesList}>{dialogsElements}</ul>
       </div>
     </section>
   );
