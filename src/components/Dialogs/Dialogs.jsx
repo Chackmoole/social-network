@@ -2,43 +2,39 @@ import styles from "./Dialogs.module.css";
 import DialogsItem from "../DialogsItem/DialogsItem";
 import MessagesItem from "../MessagesItem/MessagesItem";
 
-const dialogsItemData = [
-  { id: 1, dialogItem: "Муся" },
-  { id: 2, dialogItem: "Барбос" },
-  { id: 3, dialogItem: "Арчик" },
-  { id: 4, dialogItem: "Марго" },
-  { id: 5, dialogItem: "Дуся" },
-  { id: 6, dialogItem: "Маркиза" },
-  { id: 7, dialogItem: "Барон" },
-  { id: 8, dialogItem: "Дик" },
+const users = [
+  { id: 1, name: "Муся" },
+  { id: 2, name: "Барбос" },
+  { id: 3, name: "Арчик" },
+  { id: 4, name: "Марго" },
+  { id: 5, name: "Дуся" },
+  { id: 6, name: "Маркиза" },
+  { id: 7, name: "Барон" },
+  { id: 8, name: "Дик" },
 ];
 
-const messagesItemData = [
-  { id: 1, messagesItem: "Гав" },
-  { id: 2, messagesItem: "Гав-гав" },
-  { id: 3, messagesItem: "Р-р-р-р гав" },
+const messages = [
+  { id: 1, message: "Гав" },
+  { id: 2, message: "Гав-гав" },
+  { id: 3, message: "Р-р-р-р гав" },
 ];
+
+const usersElements = users.map((user) => {
+  return <DialogsItem dialogItem={user.name} id={user.id} />;
+});
+
+const dialogsElements = messages.map((message) => {
+  //тут как лучше с наименованием быть?
+  return <MessagesItem message={message.message} />;
+});
 
 const Dialogs = ({}) => {
   return (
     <section className={styles.dialogs}>
       <h2 className={styles.title}>Dialogs</h2>
       <div className={styles.wrapper}>
-        <ul className={styles.dialogsList}>
-          <DialogsItem
-            dialogItem={dialogsItemData[0].dialogItem}
-            id={dialogsItemData[0].id}
-          />
-          <DialogsItem
-            dialogItem={dialogsItemData[1].dialogItem}
-            id={dialogsItemData[1].id}
-          />
-        </ul>
-        <ul className={styles.messagesList}>
-          <MessagesItem message={messagesItemData[0].messagesItem} />
-          <MessagesItem message={messagesItemData[1].messagesItem} />
-          <MessagesItem message={messagesItemData[2].messagesItem} />
-        </ul>
+        <ul className={styles.dialogsList}>{usersElements}</ul>
+        <ul className={styles.messagesList}>{dialogsElements}</ul>
       </div>
     </section>
   );
