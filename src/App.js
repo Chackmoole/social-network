@@ -24,11 +24,15 @@ const App = ({ state }) => {
             />
             <Route
               path="/dialogs"
-              element={<Dialogs state={state.dialogPage} />}
+              element={
+                <Dialogs state={state.dialogPage} userName={state.userName} />
+              }
             />
             <Route
               path="/dialogs/:id"
-              element={<Dialogs state={state.dialogPage} />}
+              element={
+                <Dialogs state={state.dialogPage} userName={state.userName} />
+              }
             />
             <Route path="/music" element={<Music />} />
             <Route path="/news" element={<News />} />

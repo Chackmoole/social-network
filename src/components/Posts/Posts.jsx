@@ -3,7 +3,7 @@ import Post from "../Post/Post";
 const Posts = ({ state }) => {
   return (
     <ul>
-      {state.map((post) => {
+      {state.posts.map((post) => {
         return (
           <Post
             message={post.message}

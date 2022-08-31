@@ -1,10 +1,9 @@
 import "./Avatar.css";
 
 const Avatar = ({
-  postAvatar = "https://v-mire-sobak.ru/images/aimages/cvergshnaucer/harakter-cvergshnaucera1.jpg",
+  srcAvatar = "https://v-mire-sobak.ru/images/aimages/cvergshnaucer/harakter-cvergshnaucera1.jpg",
 }) => {
-  console.log(postAvatar);
-  return <img className="avatar" src={postAvatar} alt="" />;
+  return <img className="avatar" src={srcAvatar} alt="" />;
 };
 
 export default Avatar;

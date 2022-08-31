@@ -1,0 +1,15 @@
+.messagesItem {
+    padding: 16px;
+    margin-bottom: 12px;
+    border: 1px solid brown;
+    background-color: sandybrown;
+    width: 60%;
+    border-radius: 24px 24px 24px 4px;
+}
+
+.userMessages {
+    border-radius: 24px 24px 4px 24px;
+    margin: 0 0 12px auto;
+
+    background-color: lightgoldenrodyellow;
+}

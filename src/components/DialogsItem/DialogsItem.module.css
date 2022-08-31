@@ -5,3 +5,9 @@
 .dialogsItemActive {
     color: blue;
 }
+
+.dialogLink {
+    display: block;
+    text-decoration: none;
+    color: chocolate;
+}
