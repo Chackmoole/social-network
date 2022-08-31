@@ -1,17 +1,17 @@
 import Avatar from "../Avatar/Avatar";
-import "./Post.css";
+import styles from "./Post.module.css";
 
 const Post = ({ message, likes, postAvatar }) => {
   return (
-    <li>
-      <div className="post__wrapper">
+    <li className={styles.post}>
+      <div className={styles.post__wrapper}>
         <Avatar postAvatar={postAvatar} />
-        <span>{message}</span>
+        <span className={styles.message}>{message}</span>
       </div>
 
-      <div className="post__box">
+      <div className={styles.post__box}>
         <img
-          className="icon__heart"
+          className={styles.icon__heart}
           src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_vfBCChg2TtEqbNK_5C9x5ve0ZFuyfhs8aexZ4v1feCVvWa1sJZZ49EsbRWX3DWQo3Fo&usqp=CAU"
           alt=""
         />

@@ -14,10 +14,12 @@ const Profile = ({ state }) => {
         <Avatar />
         <PropfileDescription />
       </div>
-      <h3>Сообщения:</h3>
-      <input placeholder="Введите сообщение" />
-      <button>Отправить</button>
-      <Posts state={state} />
+      <div className={styles.block}>
+        <h3>Сообщения:</h3>
+        <input className={styles.input} placeholder="Введите сообщение" />
+        <button className={styles.button}>Отправить</button>
+        <Posts state={state} />
+      </div>
     </div>
   );
 };

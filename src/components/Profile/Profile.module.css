@@ -6,5 +6,27 @@
 .profile__box {
     display: flex;
     align-items: center;
+    padding: 24px;
 }
 
+.block {
+    margin-left: 24px;
+}
+
+.input {
+    margin-right: 48px;
+    min-height: 24px;
+    padding: 8px;
+    width: 320px;
+    border: none;
+    border-radius: 4px;
+}
+
+.button {
+    padding: 8px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: darkblue;
+    color: white;
+}
