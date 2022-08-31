@@ -9,13 +9,11 @@ import News from "./components/News/News";
 import Settings from "./components/Setting/Setting";
 
 const App = ({ state }) => {
-  // console.log(state);
-
   return (
     <BrowserRouter>
       <div className="app__wrapper">
         <Header />
-        <NavBar />
+        <NavBar state={state.sidebar} />
         <div className="app__inner">
           <Routes>
             <Route
