@@ -1,9 +1,9 @@
 import Post from "../Post/Post";
 
-const Posts = ({ posts }) => {
+const Posts = ({ state }) => {
   return (
     <ul>
-      {posts.map((post) => {
+      {state.map((post) => {
         return (
           <Post
             message={post.message}

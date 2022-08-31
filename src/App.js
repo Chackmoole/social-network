@@ -8,7 +8,9 @@ import Music from "./components/Music/Music";
 import News from "./components/News/News";
 import Settings from "./components/Setting/Setting";
 
-const App = ({ posts, users, messages }) => {
+const App = ({ state }) => {
+  // console.log(state);
+
   return (
     <BrowserRouter>
       <div className="app__wrapper">
@@ -16,14 +18,17 @@ const App = ({ posts, users, messages }) => {
         <NavBar />
         <div className="app__inner">
           <Routes>
-            <Route path="/profile" element={<Profile posts={posts} />} />
+            <Route
+              path="/profile"
+              element={<Profile state={state.profilePage} />}
+            />
             <Route
               path="/dialogs"
-              element={<Dialogs users={users} messages={messages} />}
+              element={<Dialogs state={state.dialogPage} />}
             />
             <Route
               path="/dialogs/:id"
-              element={<Dialogs users={users} messages={messages} />}
+              element={<Dialogs state={state.dialogPage} />}
             />
             <Route path="/music" element={<Music />} />
             <Route path="/news" element={<News />} />

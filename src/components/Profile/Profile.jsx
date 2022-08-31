@@ -3,7 +3,7 @@ import Avatar from "../Avatar/Avatar";
 import PropfileDescription from "../PropfileDescription/PropfileDescription";
 import Posts from "../Posts/Posts";
 
-const Profile = ({ posts }) => {
+const Profile = ({ state }) => {
   return (
     <div className={styles.profile}>
       <img
@@ -17,7 +17,7 @@ const Profile = ({ posts }) => {
       <h3>Сообщения:</h3>
       <input placeholder="Введите сообщение" />
       <button>Отправить</button>
-      <Posts posts={posts} />
+      <Posts state={state} />
     </div>
   );
 };
