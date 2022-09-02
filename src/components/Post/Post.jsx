@@ -1,11 +1,11 @@
 import Avatar from "../Avatar/Avatar";
 import styles from "./Post.module.css";
 
-const Post = ({ message, likes, postAvatar }) => {
+const Post = ({ message, likes, src }) => {
   return (
     <li className={styles.post}>
       <div className={styles.post__wrapper}>
-        <Avatar postAvatar={postAvatar} />
+        <Avatar src={src} />
         <span className={styles.message}>{message}</span>
       </div>
 

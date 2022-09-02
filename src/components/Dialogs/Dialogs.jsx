@@ -13,7 +13,7 @@ const Dialogs = ({ state, userName }) => {
               <DialogsItem
                 dialogItem={user.name}
                 id={user.id}
-                avatar={user.avatar}
+                src={user.avatar}
               />
             );
           })}

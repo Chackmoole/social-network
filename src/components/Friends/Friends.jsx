@@ -5,7 +5,7 @@ const Friends = ({ friends }) => {
   return (
     <div className={styles.friendsList}>
       {friends.map((friend) => {
-        return <Friend name={friend.name} imgSrc={friend.avatar} />;
+        return <Friend name={friend.name} src={friend.avatar} />;
       })}
     </div>
   );

@@ -9,6 +9,9 @@ import News from "./components/News/News";
 import Settings from "./components/Setting/Setting";
 
 const App = ({ state }) => {
+  // console.log("state: ", state);
+  // console.log("auth: ", state.auth);
+  // console.log("avatar: ", state.auth.avatar);
   return (
     <BrowserRouter>
       <div className="app__wrapper">
@@ -18,18 +21,26 @@ const App = ({ state }) => {
           <Routes>
             <Route
               path="/profile"
-              element={<Profile state={state.profilePage} />}
+              element={
+                <Profile state={state.profilePage} avatar={state.auth.avatar} />
+              }
             />
             <Route
               path="/dialogs"
               element={
-                <Dialogs state={state.dialogPage} userName={state.userName} />
+                <Dialogs
+                  state={state.dialogPage}
+                  userName={state.auth.userName}
+                />
               }
             />
             <Route
               path="/dialogs/:id"
               element={
-                <Dialogs state={state.dialogPage} userName={state.userName} />
+                <Dialogs
+                  state={state.dialogPage}
+                  userName={state.auth.userName}
+                />
               }
             />
             <Route path="/music" element={<Music />} />
