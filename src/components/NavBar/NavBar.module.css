@@ -1,7 +1,11 @@
-.nav {
-    grid-area: nav;
+.asideBox {
     background-color: chocolate;
     padding: 24px;
+}
+
+.nav {
+    grid-area: nav;
+    margin-bottom: 32px;
 }
 
 .link {

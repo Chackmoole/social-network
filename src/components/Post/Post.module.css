@@ -1,0 +1,28 @@
+.post {
+    margin-bottom: 24px;
+}
+
+.post__wrapper {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.post__box {
+    display: flex;
+    align-items: center;
+}
+
+.message {
+    background: palegoldenrod;
+    min-height: 44px;
+    border-radius: 24px;
+    padding: 12px;
+    width: 80%;
+}
+
+.icon__heart {
+    height: 20px;
+    width: 20px;
+    margin-right: 8px;
+}

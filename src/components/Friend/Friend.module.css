@@ -1,0 +1,12 @@
+.friendAvatar {
+    border-radius: 50%;
+    width: 48px !important;
+    height: 48px !important;
+    margin-right: 16px !important;
+}
+
+.friendItem {
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+}

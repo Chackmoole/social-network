@@ -8,22 +8,40 @@ import Music from "./components/Music/Music";
 import News from "./components/News/News";
 import Settings from "./components/Setting/Setting";
 
-const App = ({ posts, users, messages }) => {
+const App = ({ state }) => {
+  // console.log("state: ", state);
+  // console.log("auth: ", state.auth);
+  // console.log("avatar: ", state.auth.avatar);
   return (
     <BrowserRouter>
       <div className="app__wrapper">
         <Header />
-        <NavBar />
+        <NavBar state={state.sidebar} />
         <div className="app__inner">
           <Routes>
-            <Route path="/profile" element={<Profile posts={posts} />} />
+            <Route
+              path="/profile"
+              element={
+                <Profile state={state.profilePage} avatar={state.auth.avatar} />
+              }
+            />
             <Route
               path="/dialogs"
-              element={<Dialogs users={users} messages={messages} />}
+              element={
+                <Dialogs
+                  state={state.dialogPage}
+                  userName={state.auth.userName}
+                />
+              }
             />
             <Route
               path="/dialogs/:id"
-              element={<Dialogs users={users} messages={messages} />}
+              element={
+                <Dialogs
+                  state={state.dialogPage}
+                  userName={state.auth.userName}
+                />
+              }
             />
             <Route path="/music" element={<Music />} />
             <Route path="/news" element={<News />} />

@@ -1,10 +1,13 @@
-import "./Avatar.css";
+import styles from "./Avatar.module.css";
 
 const Avatar = ({
-  postAvatar = "https://v-mire-sobak.ru/images/aimages/cvergshnaucer/harakter-cvergshnaucera1.jpg",
+  className,
+  src,
+  // = "https://v-mire-sobak.ru/images/aimages/cvergshnaucer/harakter-cvergshnaucera1.jpg",
 }) => {
-  console.log(postAvatar);
-  return <img className="avatar" src={postAvatar} alt="" />;
+  // const src = className ? imgSrc : srcAvatar;
+
+  return <img className={`${styles.avatar} ${className}`} src={src} alt="" />;
 };
 
 export default Avatar;
