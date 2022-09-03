@@ -36,8 +36,15 @@ const Dialogs = ({ state, userName }) => {
             );
           })}
         </ul>
-        <textarea ref={newMessageElement}></textarea>
-        <button onClick={addMessage}>Отправить сообщение</button>
+      </div>
+      <div className={styles.dialogsBox}>
+        <textarea
+          className={styles.dialogsTextarea}
+          ref={newMessageElement}
+        ></textarea>
+        <button className={styles.dialogsButton} onClick={addMessage}>
+          Отправить сообщение
+        </button>
       </div>
     </section>
   );
