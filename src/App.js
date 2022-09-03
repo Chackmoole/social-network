@@ -9,9 +9,6 @@ import News from "./components/News/News";
 import Settings from "./components/Setting/Setting";
 
 const App = ({ state }) => {
-  // console.log("state: ", state);
-  // console.log("auth: ", state.auth);
-  // console.log("avatar: ", state.auth.avatar);
   return (
     <BrowserRouter>
       <div className="app__wrapper">
