@@ -1,6 +1,13 @@
+import React from "react";
 import styles from "./Dialogs.module.css";
 import DialogsItem from "../DialogsItem/DialogsItem";
 import MessagesItem from "../MessagesItem/MessagesItem";
+
+const newMessageElement = React.createRef();
+
+const addMessage = () => {
+  alert(newMessageElement.current.value);
+};
 
 const Dialogs = ({ state, userName }) => {
   return (
@@ -29,6 +36,8 @@ const Dialogs = ({ state, userName }) => {
             );
           })}
         </ul>
+        <textarea ref={newMessageElement}></textarea>
+        <button onClick={addMessage}>Отправить сообщение</button>
       </div>
     </section>
   );
