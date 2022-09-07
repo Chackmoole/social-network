@@ -2,11 +2,12 @@ import React from "react";
 import styles from "./Dialogs.module.css";
 import DialogsItem from "../DialogsItem/DialogsItem";
 import MessagesItem from "../MessagesItem/MessagesItem";
+import { addPost } from "../../redux/state";
 
 const newMessageElement = React.createRef();
 
 const addMessage = () => {
-  alert(newMessageElement.current.value);
+  addPost(newMessageElement.current.value);
 };
 
 const Dialogs = ({ state, userName }) => {

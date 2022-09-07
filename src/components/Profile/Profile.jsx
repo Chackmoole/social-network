@@ -3,11 +3,12 @@ import styles from "./Profile.module.css";
 import Avatar from "../Avatar/Avatar";
 import PropfileDescription from "../PropfileDescription/PropfileDescription";
 import Posts from "../Posts/Posts";
+import { addProfileMessage } from "../../redux/state";
 
 const newPostElement = React.createRef();
 
 const addPost = () => {
-  alert(newPostElement.current.value);
+  addProfileMessage(newPostElement.current.value);
 };
 
 const Profile = ({ state, avatar }) => {

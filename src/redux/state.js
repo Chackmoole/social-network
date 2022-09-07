@@ -1,3 +1,5 @@
+import { renderEntireTree } from "../render";
+
 const state = {
   auth: {
     userName: "Муся",
@@ -99,6 +101,29 @@ const state = {
       },
     ],
   },
+};
+
+export const addPost = (postMessage) => {
+  const newPost = {
+    id: state.dialogPage.messages.length + 1,
+    message: postMessage,
+    author: state.auth.userName,
+  };
+
+  state.dialogPage.messages.push(newPost);
+
+  renderEntireTree(state);
+};
+
+export const addProfileMessage = (profileMessage) => {
+  const newMessage = {
+    message: profileMessage,
+    likes: 0,
+  };
+
+  state.profilePage.posts.push(newMessage);
+
+  renderEntireTree(state);
 };
 
 export default state;
