@@ -3,12 +3,16 @@ import styles from "./Dialogs.module.css";
 import DialogsItem from "../DialogsItem/DialogsItem";
 import MessagesItem from "../MessagesItem/MessagesItem";
 
-const Dialogs = ({ state, userName, addPost }) => {
+const Dialogs = ({ state, userName, addPost, updateDialogMessageText }) => {
   const newMessageElement = React.createRef();
 
   const addMessage = () => {
     addPost(newMessageElement.current.value);
     newMessageElement.current.value = "";
+  };
+
+  const onMessageChange = () => {
+    updateDialogMessageText(newMessageElement.current.value);
   };
 
   return (
@@ -42,6 +46,7 @@ const Dialogs = ({ state, userName, addPost }) => {
         <textarea
           className={styles.dialogsTextarea}
           ref={newMessageElement}
+          onChange={onMessageChange}
         ></textarea>
         <button className={styles.dialogsButton} onClick={addMessage}>
           Отправить сообщение

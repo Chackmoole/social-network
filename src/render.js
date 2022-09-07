@@ -4,6 +4,7 @@ import ReactDOM from "react-dom/client";
 import {
   addPost,
   addProfileMessage,
+  updateDialogMessageText,
   updateProfileMessageText,
 } from "./redux/state";
 
@@ -17,6 +18,7 @@ export const renderEntireTree = (state) => {
         updateProfileMessageText={updateProfileMessageText}
         addPost={addPost}
         addProfileMessage={addProfileMessage}
+        updateDialogMessageText={updateDialogMessageText}
       />
     </React.StrictMode>
   );

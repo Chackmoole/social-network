@@ -9,7 +9,7 @@ const Profile = ({
   avatar,
   newProfileText,
   updateProfileMessageText,
-                     addProfileMessage
+  addProfileMessage,
 }) => {
   const newPostElement = React.createRef();
 

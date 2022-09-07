@@ -134,4 +134,10 @@ export const updateProfileMessageText = (profileMessageText) => {
   renderEntireTree(state);
 };
 
+export const updateDialogMessageText = (dialogMessageText) => {
+  state.dialogPage.newDialogText = dialogMessageText;
+
+  renderEntireTree(state);
+};
+
 export default state;

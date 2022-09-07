@@ -13,6 +13,7 @@ const App = ({
   updateProfileMessageText,
   addPost,
   addProfileMessage,
+  updateDialogMessageText,
 }) => {
   return (
     <BrowserRouter>
@@ -40,6 +41,7 @@ const App = ({
                   state={state.dialogPage}
                   userName={state.auth.userName}
                   addPost={addPost}
+                  updateDialogMessageText={updateDialogMessageText}
                 />
               }
             />
