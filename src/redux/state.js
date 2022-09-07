@@ -115,4 +115,15 @@ export const addPost = (postMessage) => {
   renderEntireTree(state);
 };
 
+export const addProfileMessage = (profileMessage) => {
+  const newMessage = {
+    message: profileMessage,
+    likes: 0,
+  };
+
+  state.profilePage.posts.push(newMessage);
+
+  renderEntireTree(state);
+};
+
 export default state;
