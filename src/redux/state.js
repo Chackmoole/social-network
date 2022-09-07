@@ -79,6 +79,7 @@ const state = {
       { id: 2, message: "Гав-гав", author: "Арчик" },
       { id: 3, message: "Р-р-р-р гав", author: "Муся" },
     ],
+    newDialogText: "",
   },
   sidebar: {
     friends: [
@@ -103,8 +104,6 @@ const state = {
     ],
   },
 };
-
-// TODO проверить, что везде проходит через props!!!
 
 export const addPost = (postMessage) => {
   const newPost = {

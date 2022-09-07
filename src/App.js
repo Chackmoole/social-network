@@ -8,7 +8,12 @@ import Music from "./components/Music/Music";
 import News from "./components/News/News";
 import Settings from "./components/Setting/Setting";
 
-const App = ({ state, updateProfileMessageText }) => {
+const App = ({
+  state,
+  updateProfileMessageText,
+  addPost,
+  addProfileMessage,
+}) => {
   return (
     <BrowserRouter>
       <div className="app__wrapper">
@@ -24,6 +29,7 @@ const App = ({ state, updateProfileMessageText }) => {
                   avatar={state.auth.avatar}
                   newProfileText={state.profilePage.newProfileText}
                   updateProfileMessageText={updateProfileMessageText}
+                  addProfileMessage={addProfileMessage}
                 />
               }
             />
@@ -33,6 +39,7 @@ const App = ({ state, updateProfileMessageText }) => {
                 <Dialogs
                   state={state.dialogPage}
                   userName={state.auth.userName}
+                  addPost={addPost}
                 />
               }
             />

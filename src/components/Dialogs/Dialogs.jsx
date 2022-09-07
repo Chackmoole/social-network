@@ -2,15 +2,15 @@ import React from "react";
 import styles from "./Dialogs.module.css";
 import DialogsItem from "../DialogsItem/DialogsItem";
 import MessagesItem from "../MessagesItem/MessagesItem";
-import { addPost } from "../../redux/state";
 
-const newMessageElement = React.createRef();
+const Dialogs = ({ state, userName, addPost }) => {
+  const newMessageElement = React.createRef();
 
-const addMessage = () => {
-  addPost(newMessageElement.current.value);
-};
+  const addMessage = () => {
+    addPost(newMessageElement.current.value);
+    newMessageElement.current.value = "";
+  };
 
-const Dialogs = ({ state, userName }) => {
   return (
     <section className={styles.dialogs}>
       <h2 className={styles.title}>Dialogs</h2>

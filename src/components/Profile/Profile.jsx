@@ -3,14 +3,13 @@ import styles from "./Profile.module.css";
 import Avatar from "../Avatar/Avatar";
 import PropfileDescription from "../PropfileDescription/PropfileDescription";
 import Posts from "../Posts/Posts";
-// TODO !!!!!!!!
-import { addProfileMessage } from "../../redux/state";
 
 const Profile = ({
   state,
   avatar,
   newProfileText,
   updateProfileMessageText,
+                     addProfileMessage
 }) => {
   const newPostElement = React.createRef();
 
