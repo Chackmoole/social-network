@@ -104,7 +104,7 @@ const state = {
 };
 
 export const addPost = (postMessage) => {
-  let newPost = {
+  const newPost = {
     id: state.dialogPage.messages.length + 1,
     message: postMessage,
     author: state.auth.userName,
