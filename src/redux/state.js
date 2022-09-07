@@ -21,6 +21,7 @@ const state = {
         likes: 12,
       },
     ],
+    newProfileText: "default text",
   },
   dialogPage: {
     users: [
@@ -103,6 +104,8 @@ const state = {
   },
 };
 
+// TODO проверить, что везде проходит через props!!!
+
 export const addPost = (postMessage) => {
   const newPost = {
     id: state.dialogPage.messages.length + 1,
@@ -122,6 +125,12 @@ export const addProfileMessage = (profileMessage) => {
   };
 
   state.profilePage.posts.push(newMessage);
+
+  renderEntireTree(state);
+};
+
+export const updateProfileMessageText = (profileMessageText) => {
+  state.profilePage.newProfileText = profileMessageText;
 
   renderEntireTree(state);
 };
