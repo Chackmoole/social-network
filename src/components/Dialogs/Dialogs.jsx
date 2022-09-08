@@ -2,15 +2,19 @@ import React from "react";
 import styles from "./Dialogs.module.css";
 import DialogsItem from "../DialogsItem/DialogsItem";
 import MessagesItem from "../MessagesItem/MessagesItem";
-import { addPost } from "../../redux/state";
 
-const newMessageElement = React.createRef();
+const Dialogs = ({ state, userName, addPost, updateDialogMessageText }) => {
+  const newMessageElement = React.createRef();
 
-const addMessage = () => {
-  addPost(newMessageElement.current.value);
-};
+  const addMessage = () => {
+    addPost(newMessageElement.current.value);
+    newMessageElement.current.value = "";
+  };
 
-const Dialogs = ({ state, userName }) => {
+  const onMessageChange = () => {
+    updateDialogMessageText(newMessageElement.current.value);
+  };
+
   return (
     <section className={styles.dialogs}>
       <h2 className={styles.title}>Dialogs</h2>
@@ -42,6 +46,7 @@ const Dialogs = ({ state, userName }) => {
         <textarea
           className={styles.dialogsTextarea}
           ref={newMessageElement}
+          onChange={onMessageChange}
         ></textarea>
         <button className={styles.dialogsButton} onClick={addMessage}>
           Отправить сообщение

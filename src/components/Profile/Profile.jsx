@@ -3,15 +3,25 @@ import styles from "./Profile.module.css";
 import Avatar from "../Avatar/Avatar";
 import PropfileDescription from "../PropfileDescription/PropfileDescription";
 import Posts from "../Posts/Posts";
-import { addProfileMessage } from "../../redux/state";
 
-const newPostElement = React.createRef();
+const Profile = ({
+  state,
+  avatar,
+  newProfileText,
+  updateProfileMessageText,
+  addProfileMessage,
+}) => {
+  const newPostElement = React.createRef();
 
-const addPost = () => {
-  addProfileMessage(newPostElement.current.value);
-};
+  const addPost = () => {
+    addProfileMessage(newPostElement.current.value);
+    updateProfileMessageText("");
+  };
 
-const Profile = ({ state, avatar }) => {
+  const onPostChange = () => {
+    updateProfileMessageText(newPostElement.current.value);
+  };
+
   return (
     <div className={styles.profile}>
       <img
@@ -28,6 +38,8 @@ const Profile = ({ state, avatar }) => {
           className={styles.input}
           placeholder="Введите сообщение"
           ref={newPostElement}
+          onChange={onPostChange}
+          value={newProfileText}
         />
         <button className={styles.button} onClick={addPost}>
           Отправить

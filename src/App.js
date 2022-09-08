@@ -8,7 +8,13 @@ import Music from "./components/Music/Music";
 import News from "./components/News/News";
 import Settings from "./components/Setting/Setting";
 
-const App = ({ state }) => {
+const App = ({
+  state,
+  updateProfileMessageText,
+  addPost,
+  addProfileMessage,
+  updateDialogMessageText,
+}) => {
   return (
     <BrowserRouter>
       <div className="app__wrapper">
@@ -19,7 +25,13 @@ const App = ({ state }) => {
             <Route
               path="/profile"
               element={
-                <Profile state={state.profilePage} avatar={state.auth.avatar} />
+                <Profile
+                  state={state.profilePage}
+                  avatar={state.auth.avatar}
+                  newProfileText={state.profilePage.newProfileText}
+                  updateProfileMessageText={updateProfileMessageText}
+                  addProfileMessage={addProfileMessage}
+                />
               }
             />
             <Route
@@ -28,6 +40,8 @@ const App = ({ state }) => {
                 <Dialogs
                   state={state.dialogPage}
                   userName={state.auth.userName}
+                  addPost={addPost}
+                  updateDialogMessageText={updateDialogMessageText}
                 />
               }
             />

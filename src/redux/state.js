@@ -21,6 +21,7 @@ const state = {
         likes: 12,
       },
     ],
+    newProfileText: "default text",
   },
   dialogPage: {
     users: [
@@ -78,6 +79,7 @@ const state = {
       { id: 2, message: "Гав-гав", author: "Арчик" },
       { id: 3, message: "Р-р-р-р гав", author: "Муся" },
     ],
+    newDialogText: "",
   },
   sidebar: {
     friends: [
@@ -122,6 +124,18 @@ export const addProfileMessage = (profileMessage) => {
   };
 
   state.profilePage.posts.push(newMessage);
+
+  renderEntireTree(state);
+};
+
+export const updateProfileMessageText = (profileMessageText) => {
+  state.profilePage.newProfileText = profileMessageText;
+
+  renderEntireTree(state);
+};
+
+export const updateDialogMessageText = (dialogMessageText) => {
+  state.dialogPage.newDialogText = dialogMessageText;
 
   renderEntireTree(state);
 };
