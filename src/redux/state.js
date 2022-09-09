@@ -1,4 +1,6 @@
-import { renderEntireTree } from "../render";
+let renderEntireTree = () => {
+  console.log("state изменился");
+};
 
 const state = {
   auth: {
@@ -138,6 +140,10 @@ export const updateDialogMessageText = (dialogMessageText) => {
   state.dialogPage.newDialogText = dialogMessageText;
 
   renderEntireTree(state);
+};
+
+export const subscribe = (observer) => {
+  renderEntireTree = observer;
 };
 
 export default state;
