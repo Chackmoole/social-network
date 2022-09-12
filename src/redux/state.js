@@ -141,7 +141,6 @@ export const store = {
     this.renderEntireTree(this._state);
   },
   subscribe(observer) {
-    console.log("this._callSubscriber: ", this);
     this._callSubscriber = observer;
   },
 };
