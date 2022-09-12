@@ -8,29 +8,25 @@ import Music from "./components/Music/Music";
 import News from "./components/News/News";
 import Settings from "./components/Setting/Setting";
 
-const App = ({
-  state,
-  updateProfileMessageText,
-  addPost,
-  addProfileMessage,
-  updateDialogMessageText,
-}) => {
+const App = ({ store }) => {
   return (
     <BrowserRouter>
       <div className="app__wrapper">
         <Header />
-        <NavBar state={state.sidebar} />
+        <NavBar state={store.getState().sidebar} />
         <div className="app__inner">
           <Routes>
             <Route
               path="/profile"
               element={
                 <Profile
-                  state={state.profilePage}
-                  avatar={state.auth.avatar}
-                  newProfileText={state.profilePage.newProfileText}
-                  updateProfileMessageText={updateProfileMessageText}
-                  addProfileMessage={addProfileMessage}
+                  state={store.getState().profilePage}
+                  avatar={store.getState().auth.avatar}
+                  newProfileText={store.getState().profilePage.newProfileText}
+                  updateProfileMessageText={store.updateProfileMessageText.bind(
+                    store
+                  )}
+                  addProfileMessage={store.addProfileMessage.bind(store)}
                 />
               }
             />
@@ -38,10 +34,12 @@ const App = ({
               path="/dialogs"
               element={
                 <Dialogs
-                  state={state.dialogPage}
-                  userName={state.auth.userName}
-                  addPost={addPost}
-                  updateDialogMessageText={updateDialogMessageText}
+                  state={store.getState().dialogPage}
+                  userName={store.getState().auth.userName}
+                  addPost={store.addPost.bind(store)}
+                  updateDialogMessageText={store.updateDialogMessageText.bind(
+                    store
+                  )}
                 />
               }
             />
@@ -49,8 +47,8 @@ const App = ({
               path="/dialogs/:id"
               element={
                 <Dialogs
-                  state={state.dialogPage}
-                  userName={state.auth.userName}
+                  state={store.getState().dialogPage}
+                  userName={store.getState().auth.userName}
                 />
               }
             />
