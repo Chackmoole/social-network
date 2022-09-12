@@ -13,18 +13,20 @@ const App = ({ store }) => {
     <BrowserRouter>
       <div className="app__wrapper">
         <Header />
-        <NavBar state={store.state.sidebar} />
+        <NavBar state={store.getState().sidebar} />
         <div className="app__inner">
           <Routes>
             <Route
               path="/profile"
               element={
                 <Profile
-                  state={store.state.profilePage}
-                  avatar={store.state.auth.avatar}
-                  newProfileText={store.state.profilePage.newProfileText}
-                  updateProfileMessageText={store.updateProfileMessageText}
-                  addProfileMessage={store.addProfileMessage}
+                  state={store.getState().profilePage}
+                  avatar={store.getState().auth.avatar}
+                  newProfileText={store.getState().profilePage.newProfileText}
+                  updateProfileMessageText={store.updateProfileMessageText.bind(
+                    store
+                  )}
+                  addProfileMessage={store.addProfileMessage.bind(store)}
                 />
               }
             />
@@ -32,10 +34,12 @@ const App = ({ store }) => {
               path="/dialogs"
               element={
                 <Dialogs
-                  state={store.state.dialogPage}
-                  userName={store.state.auth.userName}
-                  addPost={store.addPost}
-                  updateDialogMessageText={store.updateDialogMessageText}
+                  state={store.getState().dialogPage}
+                  userName={store.getState().auth.userName}
+                  addPost={store.addPost.bind(store)}
+                  updateDialogMessageText={store.updateDialogMessageText.bind(
+                    store
+                  )}
                 />
               }
             />
@@ -43,8 +47,8 @@ const App = ({ store }) => {
               path="/dialogs/:id"
               element={
                 <Dialogs
-                  state={store.state.dialogPage}
-                  userName={store.state.auth.userName}
+                  state={store.getState().dialogPage}
+                  userName={store.getState().auth.userName}
                 />
               }
             />

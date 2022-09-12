@@ -1,9 +1,5 @@
-let renderEntireTree = () => {
-  console.log("state изменился");
-};
-
 export const store = {
-  state: {
+  _state: {
     auth: {
       userName: "Муся",
       avatar:
@@ -107,39 +103,46 @@ export const store = {
       ],
     },
   },
-  addPost: (postMessage) => {
+  getState() {
+    return this._state;
+  },
+  _callSubscriber() {
+    console.log("state изменился");
+  },
+  addPost(postMessage) {
     const newPost = {
-      id: store.state.dialogPage.messages.length + 1,
+      id: this._state.dialogPage.messages.length + 1,
       message: postMessage,
-      author: store.state.auth.userName,
+      author: this._state.auth.userName,
     };
 
-    store.state.dialogPage.messages.push(newPost);
+    this._state.dialogPage.messages.push(newPost);
 
-    renderEntireTree(store.state);
+    this._callSubscriber(this._state);
   },
-  addProfileMessage: (profileMessage) => {
+  addProfileMessage(profileMessage) {
     const newMessage = {
       message: profileMessage,
       likes: 0,
     };
 
-    store.state.profilePage.posts.push(newMessage);
+    this._state.profilePage.posts.push(newMessage);
 
-    renderEntireTree(store.state);
+    this._callSubscriber(this._state);
   },
-  updateProfileMessageText: (profileMessageText) => {
-    store.state.profilePage.newProfileText = profileMessageText;
+  updateProfileMessageText(profileMessageText) {
+    this._state.profilePage.newProfileText = profileMessageText;
 
-    renderEntireTree(store.state);
+    this._callSubscriber(this._state);
   },
-  updateDialogMessageText: (dialogMessageText) => {
-    store.state.dialogPage.newDialogText = dialogMessageText;
+  updateDialogMessageText(dialogMessageText) {
+    this._dialogPage.newDialogText = dialogMessageText;
 
-    renderEntireTree(store.state);
+    this.renderEntireTree(this._state);
   },
-  subscribe: (observer) => {
-    renderEntireTree = observer;
+  subscribe(observer) {
+    console.log("this._callSubscriber: ", this);
+    this._callSubscriber = observer;
   },
 };
 

@@ -14,6 +14,6 @@ const renderEntireTree = () => {
   );
 };
 
-renderEntireTree(store.state);
+renderEntireTree(store.getState());
 
 store.subscribe(renderEntireTree);
