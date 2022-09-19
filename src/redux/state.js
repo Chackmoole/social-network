@@ -1,3 +1,10 @@
+const ACTION_TYPE = {
+  addProfileMessage: "ADD_PROFILE_MASSAGE",
+  updatePropfileMessagetext: "UPDATE-PROFILE-MESSAGE-TEXT",
+  addDialogPost: "ADD-POST",
+  updateDialogMessageText: "UPDATE-DIALOG-MESSAGE-TEXT",
+};
+
 export const store = {
   _state: {
     auth: {
@@ -159,13 +166,23 @@ export const store = {
 };
 
 export const addProfileMessageCreateAction = (text) => ({
-  type: "ADD-PROFILE-MASSAGE",
+  type: ACTION_TYPE.addProfileMessage,
   payload: text,
 });
 
 export const updatePropfileMessagetextCreateAction = (emptyText) => ({
-  type: "UPDATE-PROFILE-MESSAGE-TEXT",
+  type: ACTION_TYPE.updatePropfileMessagetext,
   payload: emptyText,
+});
+
+export const addDialogPostCreateAction = (text) => ({
+  type: ACTION_TYPE.addDialogPost,
+  payload: text,
+});
+
+export const updateDialogMessageTextChangeCreateAction = (symbol) => ({
+  type: ACTION_TYPE.updateDialogMessageText,
+  payload: symbol,
 });
 
 export default store;

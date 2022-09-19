@@ -17,10 +17,9 @@ const Profile = ({ state, avatar, newProfileText, dispatch }) => {
   };
 
   const onPostChange = () => {
-    dispatch({
-      type: "UPDATE-PROFILE-MESSAGE-TEXT",
-      payload: newPostElement.current.value,
-    });
+    dispatch(
+      updatePropfileMessagetextCreateAction(newPostElement.current.value)
+    );
   };
 
   return (
