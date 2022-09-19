@@ -1,8 +1,8 @@
 const ACTION_TYPE = {
   addProfileMessage: "ADD_PROFILE_MASSAGE",
-  updatePropfileMessagetext: "UPDATE-PROFILE-MESSAGE-TEXT",
-  addDialogPost: "ADD-POST",
-  updateDialogMessageText: "UPDATE-DIALOG-MESSAGE-TEXT",
+  updatePropfileMessageText: "UPDATE_PROFILE_MESSAGE_TEXT",
+  addDialogPost: "ADD_DIALOG_MESSAGE",
+  updateDialogMessageText: "UPDATE_DIALOG_MESSAGE_TEXT",
 };
 
 export const store = {
@@ -150,13 +150,13 @@ export const store = {
     return this._state;
   },
   dispatch(action) {
-    if (action.type === "ADD-POST") {
+    if (action.type === ACTION_TYPE.addDialogPost) {
       this._addPost(action.payload);
-    } else if (action.type === "UPDATE-DIALOG-MESSAGE-TEXT") {
+    } else if (action.type === ACTION_TYPE.updateDialogMessageText) {
       this._updateDialogMessageText(action.payload);
-    } else if (action.type === "ADD-PROFILE-MASSAGE") {
+    } else if (action.type === ACTION_TYPE.addProfileMessage) {
       this._addProfileMessage(action.payload);
-    } else if (action.type === "UPDATE-PROFILE-MESSAGE-TEXT") {
+    } else if (action.type === ACTION_TYPE.updatePropfileMessageText) {
       this._updateProfileMessageText(action.payload);
     }
   },
@@ -171,7 +171,7 @@ export const addProfileMessageCreateAction = (text) => ({
 });
 
 export const updatePropfileMessagetextCreateAction = (text) => ({
-  type: ACTION_TYPE.updatePropfileMessagetext,
+  type: ACTION_TYPE.updatePropfileMessageText,
   payload: text,
 });
 
