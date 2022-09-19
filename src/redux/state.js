@@ -170,9 +170,9 @@ export const addProfileMessageCreateAction = (text) => ({
   payload: text,
 });
 
-export const updatePropfileMessagetextCreateAction = (emptyText) => ({
+export const updatePropfileMessagetextCreateAction = (text) => ({
   type: ACTION_TYPE.updatePropfileMessagetext,
-  payload: emptyText,
+  payload: text,
 });
 
 export const addDialogPostCreateAction = (text) => ({
@@ -180,9 +180,9 @@ export const addDialogPostCreateAction = (text) => ({
   payload: text,
 });
 
-export const updateDialogMessageTextChangeCreateAction = (symbol) => ({
+export const updateDialogMessageTextChangeCreateAction = (text) => ({
   type: ACTION_TYPE.updateDialogMessageText,
-  payload: symbol,
+  payload: text,
 });
 
 export default store;
