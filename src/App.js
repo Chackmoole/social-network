@@ -23,10 +23,7 @@ const App = ({ store }) => {
                   state={store.getState().profilePage}
                   avatar={store.getState().auth.avatar}
                   newProfileText={store.getState().profilePage.newProfileText}
-                  updateProfileMessageText={store.updateProfileMessageText.bind(
-                    store
-                  )}
-                  addProfileMessage={store.addProfileMessage.bind(store)}
+                  dispatch={store.dispatch.bind(store)}
                 />
               }
             />
