@@ -16,13 +16,17 @@ const Profile = ({
   const addPost = () => {
     dispatch({
       type: "ADD-PROFILE-MASSAGE",
-      payLoad: newPostElement.current.value,
+      payload: newPostElement.current.value,
     });
-    dispatch({ type: "UPDATE-PROFILE-MESSAGE-TEXT", payLoad: "" });
+    dispatch({ type: "UPDATE-PROFILE-MESSAGE-TEXT", payload: "" });
   };
 
   const onPostChange = () => {
-    updateProfileMessageText(newPostElement.current.value);
+    // updateProfileMessageText(newPostElement.current.value);
+    dispatch({
+      type: "UPDATE-PROFILE-MESSAGE-TEXT",
+      payload: newPostElement.current.value,
+    });
   };
 
   return (

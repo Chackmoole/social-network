@@ -9,7 +9,7 @@ const Dialogs = ({ state, userName, dispatch }) => {
   const addMessage = () => {
     // addPost(newMessageElement.current.value);
     // newMessageElement.current.value = "";
-    dispatch({ type: "ADD-POST", payLoad: newMessageElement.current.value });
+    dispatch({ type: "ADD-POST", payload: newMessageElement.current.value });
     newMessageElement.current.value = "";
   };
 

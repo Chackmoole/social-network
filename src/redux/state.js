@@ -144,13 +144,13 @@ export const store = {
   },
   dispatch(action) {
     if (action.type === "ADD-POST") {
-      this._addPost(action.payLoad);
+      this._addPost(action.payload);
     } else if (action.type === "UPDATE-DIALOG-MESSAGE-TEXT") {
-      this._updateDialogMessageText(action.payLoad);
+      this._updateDialogMessageText(action.payload);
     } else if (action.type === "ADD-PROFILE-MASSAGE") {
-      this._addProfileMessage(action.payLoad);
+      this._addProfileMessage(action.payload);
     } else if (action.type === "UPDATE-PROFILE-MESSAGE-TEXT") {
-      this._updateProfileMessageText(action.payLoad);
+      this._updateProfileMessageText(action.payload);
     }
   },
   subscribe(observer) {
