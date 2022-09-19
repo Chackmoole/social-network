@@ -2,23 +2,23 @@ import React from "react";
 import styles from "./Dialogs.module.css";
 import DialogsItem from "../DialogsItem/DialogsItem";
 import MessagesItem from "../MessagesItem/MessagesItem";
+import {
+  addDialogPostCreateAction,
+  updateDialogMessageTextChangeCreateAction,
+} from "../../redux/state";
 
 const Dialogs = ({ state, userName, dispatch }) => {
   const newMessageElement = React.createRef();
 
   const addMessage = () => {
-    // addPost(newMessageElement.current.value);
-    // newMessageElement.current.value = "";
-    dispatch({ type: "ADD-POST", payLoad: newMessageElement.current.value });
+    dispatch(addDialogPostCreateAction(newMessageElement.current.value));
     newMessageElement.current.value = "";
   };
 
   const onMessageChange = () => {
-    // updateDialogMessageText(newMessageElement.current.value);
-    dispatch({
-      type: "UPDATE-DIALOG-MESSAGE-TEXT",
-      payload: newMessageElement.current.value,
-    });
+    dispatch(
+      updateDialogMessageTextChangeCreateAction(newMessageElement.current.value)
+    );
   };
 
   return (

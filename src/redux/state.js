@@ -1,3 +1,10 @@
+const ACTION_TYPE = {
+  addProfileMessage: "ADD_PROFILE_MASSAGE",
+  updatePropfileMessageText: "UPDATE_PROFILE_MESSAGE_TEXT",
+  addDialogPost: "ADD_DIALOG_MESSAGE",
+  updateDialogMessageText: "UPDATE_DIALOG_MESSAGE_TEXT",
+};
+
 export const store = {
   _state: {
     auth: {
@@ -143,19 +150,39 @@ export const store = {
     return this._state;
   },
   dispatch(action) {
-    if (action.type === "ADD-POST") {
-      this._addPost(action.payLoad);
-    } else if (action.type === "UPDATE-DIALOG-MESSAGE-TEXT") {
-      this._updateDialogMessageText(action.payLoad);
-    } else if (action.type === "ADD-PROFILE-MASSAGE") {
-      this._addProfileMessage(action.payLoad);
-    } else if (action.type === "UPDATE-PROFILE-MESSAGE-TEXT") {
-      this._updateProfileMessageText(action.payLoad);
+    if (action.type === ACTION_TYPE.addDialogPost) {
+      this._addPost(action.payload);
+    } else if (action.type === ACTION_TYPE.updateDialogMessageText) {
+      this._updateDialogMessageText(action.payload);
+    } else if (action.type === ACTION_TYPE.addProfileMessage) {
+      this._addProfileMessage(action.payload);
+    } else if (action.type === ACTION_TYPE.updatePropfileMessageText) {
+      this._updateProfileMessageText(action.payload);
     }
   },
   subscribe(observer) {
     this._callSubscriber = observer;
   },
 };
+
+export const addProfileMessageCreateAction = (text) => ({
+  type: ACTION_TYPE.addProfileMessage,
+  payload: text,
+});
+
+export const updatePropfileMessagetextCreateAction = (text) => ({
+  type: ACTION_TYPE.updatePropfileMessageText,
+  payload: text,
+});
+
+export const addDialogPostCreateAction = (text) => ({
+  type: ACTION_TYPE.addDialogPost,
+  payload: text,
+});
+
+export const updateDialogMessageTextChangeCreateAction = (text) => ({
+  type: ACTION_TYPE.updateDialogMessageText,
+  payload: text,
+});
 
 export default store;
