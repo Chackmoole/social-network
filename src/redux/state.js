@@ -158,4 +158,14 @@ export const store = {
   },
 };
 
+export const addProfileMessageCreateAction = (text) => ({
+  type: "ADD-PROFILE-MASSAGE",
+  payload: text,
+});
+
+export const updatePropfileMessagetextCreateAction = (emptyText) => ({
+  type: "UPDATE-PROFILE-MESSAGE-TEXT",
+  payload: emptyText,
+});
+
 export default store;

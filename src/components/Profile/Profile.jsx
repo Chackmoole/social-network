@@ -3,26 +3,20 @@ import styles from "./Profile.module.css";
 import Avatar from "../Avatar/Avatar";
 import PropfileDescription from "../PropfileDescription/PropfileDescription";
 import Posts from "../Posts/Posts";
+import {
+  addProfileMessageCreateAction,
+  updatePropfileMessagetextCreateAction,
+} from "../../redux/state";
 
-const Profile = ({
-  state,
-  avatar,
-  newProfileText,
-  updateProfileMessageText,
-  dispatch,
-}) => {
+const Profile = ({ state, avatar, newProfileText, dispatch }) => {
   const newPostElement = React.createRef();
 
   const addPost = () => {
-    dispatch({
-      type: "ADD-PROFILE-MASSAGE",
-      payload: newPostElement.current.value,
-    });
-    dispatch({ type: "UPDATE-PROFILE-MESSAGE-TEXT", payload: "" });
+    dispatch(addProfileMessageCreateAction(newPostElement.current.value));
+    dispatch(updatePropfileMessagetextCreateAction(""));
   };
 
   const onPostChange = () => {
-    // updateProfileMessageText(newPostElement.current.value);
     dispatch({
       type: "UPDATE-PROFILE-MESSAGE-TEXT",
       payload: newPostElement.current.value,
