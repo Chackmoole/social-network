@@ -109,7 +109,7 @@ export const store = {
   _callSubscriber() {
     console.log("state изменился");
   },
-  addPost(postMessage) {
+  _addPost(postMessage) {
     const newPost = {
       id: this._state.dialogPage.messages.length + 1,
       message: postMessage,
@@ -120,6 +120,7 @@ export const store = {
 
     this._callSubscriber(this._state);
   },
+
   addProfileMessage(profileMessage) {
     const newMessage = {
       message: profileMessage,
@@ -135,11 +136,21 @@ export const store = {
 
     this._callSubscriber(this._state);
   },
-  updateDialogMessageText(dialogMessageText) {
-    this._dialogPage.newDialogText = dialogMessageText;
 
-    this.renderEntireTree(this._state);
+  _updateDialogMessageText(dialogMessageText) {
+    this._state.dialogPage.newDialogText = dialogMessageText;
+
+    this._callSubscriber(this._state);
   },
+
+  dispatch(action) {
+    if (action.type === "ADD-POST") {
+      this._addPost(action.payLoad);
+    } else if (action.type === "UPDATE-DIALOG-MESSAGE-TEXT") {
+      this._updateDialogMessageText(action.payLoad);
+    }
+  },
+
   subscribe(observer) {
     this._callSubscriber = observer;
   },

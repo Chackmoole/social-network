@@ -36,10 +36,7 @@ const App = ({ store }) => {
                 <Dialogs
                   state={store.getState().dialogPage}
                   userName={store.getState().auth.userName}
-                  addPost={store.addPost.bind(store)}
-                  updateDialogMessageText={store.updateDialogMessageText.bind(
-                    store
-                  )}
+                  dispatch={store.dispatch.bind(store)}
                 />
               }
             />
