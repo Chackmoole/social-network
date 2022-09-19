@@ -3,16 +3,22 @@ import styles from "./Dialogs.module.css";
 import DialogsItem from "../DialogsItem/DialogsItem";
 import MessagesItem from "../MessagesItem/MessagesItem";
 
-const Dialogs = ({ state, userName, addPost, updateDialogMessageText }) => {
+const Dialogs = ({ state, userName, dispatch }) => {
   const newMessageElement = React.createRef();
 
   const addMessage = () => {
-    addPost(newMessageElement.current.value);
+    // addPost(newMessageElement.current.value);
+    // newMessageElement.current.value = "";
+    dispatch({ type: "ADD-POST", payLoad: newMessageElement.current.value });
     newMessageElement.current.value = "";
   };
 
   const onMessageChange = () => {
-    updateDialogMessageText(newMessageElement.current.value);
+    // updateDialogMessageText(newMessageElement.current.value);
+    dispatch({
+      type: "UPDATE-DIALOG-MESSAGE-TEXT",
+      payload: newMessageElement.current.value,
+    });
   };
 
   return (

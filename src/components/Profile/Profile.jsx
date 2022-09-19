@@ -9,13 +9,16 @@ const Profile = ({
   avatar,
   newProfileText,
   updateProfileMessageText,
-  addProfileMessage,
+  dispatch,
 }) => {
   const newPostElement = React.createRef();
 
   const addPost = () => {
-    addProfileMessage(newPostElement.current.value);
-    updateProfileMessageText("");
+    dispatch({
+      type: "ADD-PROFILE-MASSAGE",
+      payLoad: newPostElement.current.value,
+    });
+    dispatch({ type: "UPDATE-PROFILE-MESSAGE-TEXT", payLoad: "" });
   };
 
   const onPostChange = () => {

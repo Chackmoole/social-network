@@ -103,13 +103,11 @@ export const store = {
       ],
     },
   },
-  getState() {
-    return this._state;
-  },
+
   _callSubscriber() {
     console.log("state изменился");
   },
-  addPost(postMessage) {
+  _addPost(postMessage) {
     const newPost = {
       id: this._state.dialogPage.messages.length + 1,
       message: postMessage,
@@ -120,7 +118,12 @@ export const store = {
 
     this._callSubscriber(this._state);
   },
-  addProfileMessage(profileMessage) {
+  _updateDialogMessageText(dialogMessageText) {
+    this._state.dialogPage.newDialogText = dialogMessageText;
+
+    this._callSubscriber(this._state);
+  },
+  _addProfileMessage(profileMessage) {
     const newMessage = {
       message: profileMessage,
       likes: 0,
@@ -130,15 +133,25 @@ export const store = {
 
     this._callSubscriber(this._state);
   },
-  updateProfileMessageText(profileMessageText) {
+  _updateProfileMessageText(profileMessageText) {
     this._state.profilePage.newProfileText = profileMessageText;
 
     this._callSubscriber(this._state);
   },
-  updateDialogMessageText(dialogMessageText) {
-    this._dialogPage.newDialogText = dialogMessageText;
 
-    this.renderEntireTree(this._state);
+  getState() {
+    return this._state;
+  },
+  dispatch(action) {
+    if (action.type === "ADD-POST") {
+      this._addPost(action.payLoad);
+    } else if (action.type === "UPDATE-DIALOG-MESSAGE-TEXT") {
+      this._updateDialogMessageText(action.payLoad);
+    } else if (action.type === "ADD-PROFILE-MASSAGE") {
+      this._addProfileMessage(action.payLoad);
+    } else if (action.type === "UPDATE-PROFILE-MESSAGE-TEXT") {
+      this._updateProfileMessageText(action.payLoad);
+    }
   },
   subscribe(observer) {
     this._callSubscriber = observer;

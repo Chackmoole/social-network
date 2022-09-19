@@ -23,10 +23,7 @@ const App = ({ store }) => {
                   state={store.getState().profilePage}
                   avatar={store.getState().auth.avatar}
                   newProfileText={store.getState().profilePage.newProfileText}
-                  updateProfileMessageText={store.updateProfileMessageText.bind(
-                    store
-                  )}
-                  addProfileMessage={store.addProfileMessage.bind(store)}
+                  dispatch={store.dispatch.bind(store)}
                 />
               }
             />
@@ -36,10 +33,7 @@ const App = ({ store }) => {
                 <Dialogs
                   state={store.getState().dialogPage}
                   userName={store.getState().auth.userName}
-                  addPost={store.addPost.bind(store)}
-                  updateDialogMessageText={store.updateDialogMessageText.bind(
-                    store
-                  )}
+                  dispatch={store.dispatch.bind(store)}
                 />
               }
             />
