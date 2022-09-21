@@ -6,7 +6,7 @@ import Posts from "../Posts/Posts";
 import {
   addProfileMessageCreateAction,
   updatePropfileMessagetextCreateAction,
-} from "../../redux/state";
+} from "../../redux/profileReducer";
 
 const Profile = ({ state, avatar, newProfileText, dispatch }) => {
   const newPostElement = React.createRef();

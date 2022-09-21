@@ -43,6 +43,7 @@ const App = ({ store }) => {
                 <Dialogs
                   state={store.getState().dialogPage}
                   userName={store.getState().auth.userName}
+                  dispatch={store.dispatch.bind(store)}
                 />
               }
             />

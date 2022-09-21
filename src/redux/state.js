@@ -1,9 +1,7 @@
-const ACTION_TYPE = {
-  addProfileMessage: "ADD_PROFILE_MASSAGE",
-  updatePropfileMessageText: "UPDATE_PROFILE_MESSAGE_TEXT",
-  addDialogPost: "ADD_DIALOG_MESSAGE",
-  updateDialogMessageText: "UPDATE_DIALOG_MESSAGE_TEXT",
-};
+import profileReducer from "./profileReducer";
+import dialogReducer from "./dialogReducer";
+import authReducer from "./authReducer";
+import sidebarReducer from "./sidebarReducer";
 
 export const store = {
   _state: {
@@ -114,75 +112,25 @@ export const store = {
   _callSubscriber() {
     console.log("state изменился");
   },
-  _addPost(postMessage) {
-    const newPost = {
-      id: this._state.dialogPage.messages.length + 1,
-      message: postMessage,
-      author: this._state.auth.userName,
-    };
-
-    this._state.dialogPage.messages.push(newPost);
-
-    this._callSubscriber(this._state);
-  },
-  _updateDialogMessageText(dialogMessageText) {
-    this._state.dialogPage.newDialogText = dialogMessageText;
-
-    this._callSubscriber(this._state);
-  },
-  _addProfileMessage(profileMessage) {
-    const newMessage = {
-      message: profileMessage,
-      likes: 0,
-    };
-
-    this._state.profilePage.posts.push(newMessage);
-
-    this._callSubscriber(this._state);
-  },
-  _updateProfileMessageText(profileMessageText) {
-    this._state.profilePage.newProfileText = profileMessageText;
-
-    this._callSubscriber(this._state);
-  },
 
   getState() {
     return this._state;
   },
   dispatch(action) {
-    if (action.type === ACTION_TYPE.addDialogPost) {
-      this._addPost(action.payload);
-    } else if (action.type === ACTION_TYPE.updateDialogMessageText) {
-      this._updateDialogMessageText(action.payload);
-    } else if (action.type === ACTION_TYPE.addProfileMessage) {
-      this._addProfileMessage(action.payload);
-    } else if (action.type === ACTION_TYPE.updatePropfileMessageText) {
-      this._updateProfileMessageText(action.payload);
-    }
+    this._state.profilePage = profileReducer(this._state.profilePage, action);
+    this._state.dialogPage = dialogReducer(
+      this._state.dialogPage,
+      action,
+      this._state.auth.userName
+    );
+    this._state.auth = authReducer(this._state.auth, action);
+    this._state.sidebar = sidebarReducer(this._state.sidebar, action);
+
+    this._callSubscriber(this._state);
   },
   subscribe(observer) {
     this._callSubscriber = observer;
   },
 };
-
-export const addProfileMessageCreateAction = (text) => ({
-  type: ACTION_TYPE.addProfileMessage,
-  payload: text,
-});
-
-export const updatePropfileMessagetextCreateAction = (text) => ({
-  type: ACTION_TYPE.updatePropfileMessageText,
-  payload: text,
-});
-
-export const addDialogPostCreateAction = (text) => ({
-  type: ACTION_TYPE.addDialogPost,
-  payload: text,
-});
-
-export const updateDialogMessageTextChangeCreateAction = (text) => ({
-  type: ACTION_TYPE.updateDialogMessageText,
-  payload: text,
-});
 
 export default store;
