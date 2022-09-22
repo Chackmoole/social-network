@@ -3,7 +3,25 @@ const ACTION_TYPE = {
   updatePropfileMessageText: "UPDATE_PROFILE_MESSAGE_TEXT",
 };
 
-const propfileReducer = (state, action) => {
+const initialState = {
+  posts: [
+    {
+      message: "Сообщение №1",
+      likes: 10,
+    },
+    {
+      message: "Сообщение №2",
+      likes: 29,
+    },
+    {
+      message: "Сообщение №3",
+      likes: 12,
+    },
+  ],
+  newProfileText: "default text",
+};
+
+const propfileReducer = (state = initialState, action) => {
   const addProfileMessage = (profileMessage) => {
     const newMessage = {
       message: profileMessage,

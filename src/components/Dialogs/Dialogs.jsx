@@ -11,7 +11,12 @@ const Dialogs = ({ state, userName, dispatch }) => {
   const newMessageElement = React.createRef();
 
   const addMessage = () => {
-    dispatch(addDialogPostCreateAction(newMessageElement.current.value));
+    dispatch(
+      addDialogPostCreateAction({
+        text: newMessageElement.current.value,
+        author: userName,
+      })
+    );
     newMessageElement.current.value = "";
   };
 
