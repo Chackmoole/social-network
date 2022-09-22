@@ -11,13 +11,20 @@ const Dialogs = ({ state, userName, dispatch }) => {
   const newMessageElement = React.createRef();
 
   const addMessage = () => {
-    dispatch(addDialogPostCreateAction(newMessageElement.current.value));
-    newMessageElement.current.value = "";
+    dispatch(
+      addDialogPostCreateAction({
+        text: newMessageElement.current.value,
+        author: userName,
+      })
+    );
+    dispatch(updateDialogMessageTextChangeCreateAction({ text: "" }));
   };
 
   const onMessageChange = () => {
     dispatch(
-      updateDialogMessageTextChangeCreateAction(newMessageElement.current.value)
+      updateDialogMessageTextChangeCreateAction({
+        text: newMessageElement.current.value,
+      })
     );
   };
 

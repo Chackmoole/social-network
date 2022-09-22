@@ -3,17 +3,35 @@ const ACTION_TYPE = {
   updatePropfileMessageText: "UPDATE_PROFILE_MESSAGE_TEXT",
 };
 
-const propfileReducer = (state, action) => {
-  const addProfileMessage = (profileMessage) => {
+const initialState = {
+  posts: [
+    {
+      message: "Сообщение №1",
+      likes: 10,
+    },
+    {
+      message: "Сообщение №2",
+      likes: 29,
+    },
+    {
+      message: "Сообщение №3",
+      likes: 12,
+    },
+  ],
+  newProfileText: "default text",
+};
+
+const propfileReducer = (state = initialState, action) => {
+  const addProfileMessage = ({ text }) => {
     const newMessage = {
-      message: profileMessage,
+      message: text,
       likes: 0,
     };
 
     state.posts.push(newMessage);
   };
-  const updateProfileMessageText = (profileMessageText) => {
-    state.newProfileText = profileMessageText;
+  const updateProfileMessageText = ({ text }) => {
+    state.newProfileText = text;
   };
 
   switch (action.type) {
@@ -28,14 +46,14 @@ const propfileReducer = (state, action) => {
   }
 };
 
-export const addProfileMessageCreateAction = (text) => ({
+export const addProfileMessageCreateAction = ({ text }) => ({
   type: ACTION_TYPE.addProfileMessage,
-  payload: text,
+  payload: { text },
 });
 
-export const updatePropfileMessagetextCreateAction = (text) => ({
+export const updatePropfileMessagetextCreateAction = ({ text }) => ({
   type: ACTION_TYPE.updatePropfileMessageText,
-  payload: text,
+  payload: { text },
 });
 
 export default propfileReducer;
