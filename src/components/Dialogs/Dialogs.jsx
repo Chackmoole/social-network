@@ -5,7 +5,7 @@ import MessagesItem from "../MessagesItem/MessagesItem";
 import {
   addDialogPostCreateAction,
   updateDialogMessageTextChangeCreateAction,
-} from "../../redux/state";
+} from "../../redux/dialogReducer";
 
 const Dialogs = ({ state, userName, dispatch }) => {
   const newMessageElement = React.createRef();
