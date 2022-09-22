@@ -17,7 +17,7 @@ const Dialogs = ({ state, userName, dispatch }) => {
         author: userName,
       })
     );
-    newMessageElement.current.value = { text: "" };
+    dispatch(updateDialogMessageTextChangeCreateAction({ text: "" }));
   };
 
   const onMessageChange = () => {
