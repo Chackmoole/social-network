@@ -12,13 +12,17 @@ const Profile = ({ state, avatar, newProfileText, dispatch }) => {
   const newPostElement = React.createRef();
 
   const addPost = () => {
-    dispatch(addProfileMessageCreateAction(newPostElement.current.value));
-    dispatch(updatePropfileMessagetextCreateAction(""));
+    dispatch(
+      addProfileMessageCreateAction({ text: newPostElement.current.value })
+    );
+    dispatch(updatePropfileMessagetextCreateAction({ text: "" }));
   };
 
   const onPostChange = () => {
     dispatch(
-      updatePropfileMessagetextCreateAction(newPostElement.current.value)
+      updatePropfileMessagetextCreateAction({
+        text: newPostElement.current.value,
+      })
     );
   };
 

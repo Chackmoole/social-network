@@ -72,8 +72,8 @@ const dialogReducer = (state = initialState, action) => {
 
     state.messages.push(newPost);
   };
-  const updateDialogMessageText = (dialogMessageText) => {
-    state.newDialogText = dialogMessageText;
+  const updateDialogMessageText = ({ text }) => {
+    state.newDialogText = text;
   };
 
   switch (action.type) {
@@ -93,9 +93,9 @@ export const addDialogPostCreateAction = ({ text, author }) => ({
   payload: { text, author },
 });
 
-export const updateDialogMessageTextChangeCreateAction = (text) => ({
+export const updateDialogMessageTextChangeCreateAction = ({ text }) => ({
   type: ACTION_TYPE.updateDialogMessageText,
-  payload: text,
+  payload: { text },
 });
 
 export default dialogReducer;

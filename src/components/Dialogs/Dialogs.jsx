@@ -17,12 +17,14 @@ const Dialogs = ({ state, userName, dispatch }) => {
         author: userName,
       })
     );
-    newMessageElement.current.value = "";
+    newMessageElement.current.value = { text: "" };
   };
 
   const onMessageChange = () => {
     dispatch(
-      updateDialogMessageTextChangeCreateAction(newMessageElement.current.value)
+      updateDialogMessageTextChangeCreateAction({
+        text: newMessageElement.current.value,
+      })
     );
   };
 

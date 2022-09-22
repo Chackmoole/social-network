@@ -22,16 +22,16 @@ const initialState = {
 };
 
 const propfileReducer = (state = initialState, action) => {
-  const addProfileMessage = (profileMessage) => {
+  const addProfileMessage = ({ text }) => {
     const newMessage = {
-      message: profileMessage,
+      message: text,
       likes: 0,
     };
 
     state.posts.push(newMessage);
   };
-  const updateProfileMessageText = (profileMessageText) => {
-    state.newProfileText = profileMessageText;
+  const updateProfileMessageText = ({ text }) => {
+    state.newProfileText = text;
   };
 
   switch (action.type) {
@@ -46,14 +46,14 @@ const propfileReducer = (state = initialState, action) => {
   }
 };
 
-export const addProfileMessageCreateAction = (text) => ({
+export const addProfileMessageCreateAction = ({ text }) => ({
   type: ACTION_TYPE.addProfileMessage,
-  payload: text,
+  payload: { text },
 });
 
-export const updatePropfileMessagetextCreateAction = (text) => ({
+export const updatePropfileMessagetextCreateAction = ({ text }) => ({
   type: ACTION_TYPE.updatePropfileMessageText,
-  payload: text,
+  payload: { text },
 });
 
 export default propfileReducer;
