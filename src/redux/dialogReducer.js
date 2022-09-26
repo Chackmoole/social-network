@@ -74,6 +74,8 @@ const dialogReducer = (state = initialState, action) => {
   };
   const updateDialogMessageText = ({ text }) => {
     state.newDialogText = text;
+    // console.log("text: ", text);
+    // console.log("state.newDialogText: ", state.newDialogText);
   };
 
   switch (action.type) {
@@ -82,6 +84,7 @@ const dialogReducer = (state = initialState, action) => {
       return state;
     case ACTION_TYPE.updateDialogMessageText:
       updateDialogMessageText(action.payload);
+      // console.log("action.payload: ", action.payload);
       return state;
     default:
       return state;

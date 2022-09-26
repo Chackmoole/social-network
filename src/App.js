@@ -7,6 +7,7 @@ import Dialogs from "./components/Dialogs/Dialogs";
 import Music from "./components/Music/Music";
 import News from "./components/News/News";
 import Settings from "./components/Setting/Setting";
+import DialogsContainer from "./components/Dialogs/DialogsContainer";
 
 const App = ({ store }) => {
   return (
@@ -30,7 +31,7 @@ const App = ({ store }) => {
             <Route
               path="/dialogs"
               element={
-                <Dialogs
+                <DialogsContainer
                   state={store.getState().dialogPage}
                   userName={store.getState().auth.userName}
                   dispatch={store.dispatch.bind(store)}
@@ -40,7 +41,7 @@ const App = ({ store }) => {
             <Route
               path="/dialogs/:id"
               element={
-                <Dialogs
+                <DialogsContainer
                   state={store.getState().dialogPage}
                   userName={store.getState().auth.userName}
                   dispatch={store.dispatch.bind(store)}
