@@ -4,7 +4,7 @@ import Avatar from "../Avatar/Avatar";
 import ProfileDescription from "../ProfileDescription/ProfileDescription";
 import Posts from "../Posts/Posts";
 
-const Profile = ({ state, avatar, addPost, onPostChange }) => {
+const Profile = ({ profilePage, avatar, addPost, onPostChange }) => {
   return (
     <div className={styles.profile}>
       <img
@@ -20,7 +20,7 @@ const Profile = ({ state, avatar, addPost, onPostChange }) => {
         <input
           className={styles.input}
           placeholder="Введите сообщение"
-          value={state.newProfileText}
+          value={profilePage.newProfileText}
           onChange={(e) => {
             onPostChange({ text: e.target.value });
           }}
@@ -28,12 +28,12 @@ const Profile = ({ state, avatar, addPost, onPostChange }) => {
         <button
           className={styles.button}
           onClick={() => {
-            addPost({ text: state.newProfileText });
+            addPost({ text: profilePage.newProfileText });
           }}
         >
           Отправить
         </button>
-        <Posts state={state} src={avatar} />
+        <Posts state={profilePage} src={avatar} />
       </div>
     </div>
   );

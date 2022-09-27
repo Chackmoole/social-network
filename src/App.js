@@ -18,16 +18,7 @@ const App = ({ store }) => {
           <NavBar state={store.getState().sidebar} />
           <div className="app__inner">
             <Routes>
-              <Route
-                path="/profile"
-                element={
-                  <ProfileContainer
-                    state={store.getState().profilePage}
-                    avatar={store.getState().auth.avatar}
-                    dispatch={store.dispatch.bind(store)}
-                  />
-                }
-              />
+              <Route path="/profile" element={<ProfileContainer />} />
               <Route path="/dialogs" element={<DialogsContainer />} />
               <Route path="/dialogs/:id" element={<DialogsContainer />} />
               <Route path="/music" element={<Music />} />
