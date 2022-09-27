@@ -1,38 +1,36 @@
-import React from "react";
 import Dialogs from "./Dialogs";
 
 import {
   addDialogPostCreateAction,
   updateDialogMessageTextChangeCreateAction,
 } from "../../redux/dialogReducer";
+import { connect } from "react-redux";
 
-const DialogsContainer = ({ state, userName, dispatch }) => {
-  const addMessage = ({ text }) => {
-    dispatch(
-      addDialogPostCreateAction({
-        text: text,
-        author: userName,
-      })
-    );
-    dispatch(updateDialogMessageTextChangeCreateAction({ text: "" }));
-  };
-
-  const onMessageChange = ({ text }) => {
-    dispatch(
-      updateDialogMessageTextChangeCreateAction({
-        text: text,
-      })
-    );
-  };
-
-  return (
-    <Dialogs
-      addMessage={addMessage}
-      onMessageChange={onMessageChange}
-      state={state}
-      userName={userName}
-    />
-  );
+const mapStateToProps = (state) => {
+  return { userName: state.userName, dialogPage: state.dialogPage };
 };
+
+const mapDispatchToProps = (dispatch, userName) => {
+  return {
+    addMessage: ({ text }) => {
+      dispatch(
+        addDialogPostCreateAction({
+          text: text,
+          author: userName,
+        })
+      );
+      dispatch(updateDialogMessageTextChangeCreateAction({ text: "" }));
+    },
+    onMessageChange: ({ text }) => {
+      dispatch(
+        updateDialogMessageTextChangeCreateAction({
+          text: text,
+        })
+      );
+    },
+  };
+};
+
+const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(Dialogs);
 
 export default DialogsContainer;

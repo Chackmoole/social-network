@@ -3,13 +3,13 @@ import styles from "./Dialogs.module.css";
 import DialogsItem from "../DialogsItem/DialogsItem";
 import MessagesItem from "../MessagesItem/MessagesItem";
 
-const Dialogs = ({ state, userName, addMessage, onMessageChange }) => {
+const Dialogs = ({ dialogPage, userName, addMessage, onMessageChange }) => {
   return (
     <section className={styles.dialogs}>
       <h2 className={styles.title}>Dialogs</h2>
       <div className={styles.wrapper}>
         <ul className={styles.dialogsList}>
-          {state.users.map((user) => {
+          {dialogPage.users.map((user) => {
             return (
               <DialogsItem
                 dialogItem={user.name}
@@ -20,7 +20,7 @@ const Dialogs = ({ state, userName, addMessage, onMessageChange }) => {
           })}
         </ul>
         <ul className={styles.messagesList}>
-          {state.messages.map((message) => {
+          {dialogPage.messages.map((message) => {
             return (
               <MessagesItem
                 message={message.message}
@@ -34,7 +34,7 @@ const Dialogs = ({ state, userName, addMessage, onMessageChange }) => {
       <div className={styles.dialogsBox}>
         <textarea
           className={styles.dialogsTextarea}
-          value={state.newDialogText}
+          value={dialogPage.newDialogText}
           onChange={(e) => {
             onMessageChange({ text: e.target.value });
           }}
@@ -42,7 +42,7 @@ const Dialogs = ({ state, userName, addMessage, onMessageChange }) => {
         <button
           className={styles.dialogsButton}
           onClick={() => {
-            addMessage({ text: state.newDialogText });
+            addMessage({ text: dialogPage.newDialogText });
           }}
         >
           Отправить сообщение
