@@ -1,4 +1,4 @@
-const PropfileDescription = () => {
+const ProfileDescription = () => {
   return (
     <table className="PropfileDescription">
       <tbody>
@@ -23,4 +23,4 @@ const PropfileDescription = () => {
   );
 };
 
-export default PropfileDescription;
+export default ProfileDescription;

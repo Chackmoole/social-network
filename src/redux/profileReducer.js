@@ -18,7 +18,7 @@ const initialState = {
       likes: 12,
     },
   ],
-  newProfileText: "default text",
+  newProfileText: "Default text",
 };
 
 const propfileReducer = (state = initialState, action) => {

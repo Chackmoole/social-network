@@ -4,8 +4,6 @@ import DialogsItem from "../DialogsItem/DialogsItem";
 import MessagesItem from "../MessagesItem/MessagesItem";
 
 const Dialogs = ({ state, userName, addMessage, onMessageChange }) => {
-  // const newMessageElement = React.createRef();
-  console.log(state.newDialogText);
   return (
     <section className={styles.dialogs}>
       <h2 className={styles.title}>Dialogs</h2>
