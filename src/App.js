@@ -1,12 +1,12 @@
 import "./App.css";
 import Header from "./components/Header/Header";
 import NavBar from "./components/NavBar/NavBar";
-import Profile from "./components/Profile/Profile";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Dialogs from "./components/Dialogs/Dialogs";
 import Music from "./components/Music/Music";
 import News from "./components/News/News";
 import Settings from "./components/Setting/Setting";
+import DialogsContainer from "./components/Dialogs/DialogsContainer";
+import ProfileContainer from "./components/Profile/ProfileContainer";
 
 const App = ({ store }) => {
   return (
@@ -19,10 +19,9 @@ const App = ({ store }) => {
             <Route
               path="/profile"
               element={
-                <Profile
+                <ProfileContainer
                   state={store.getState().profilePage}
                   avatar={store.getState().auth.avatar}
-                  newProfileText={store.getState().profilePage.newProfileText}
                   dispatch={store.dispatch.bind(store)}
                 />
               }
@@ -30,7 +29,7 @@ const App = ({ store }) => {
             <Route
               path="/dialogs"
               element={
-                <Dialogs
+                <DialogsContainer
                   state={store.getState().dialogPage}
                   userName={store.getState().auth.userName}
                   dispatch={store.dispatch.bind(store)}
@@ -40,7 +39,7 @@ const App = ({ store }) => {
             <Route
               path="/dialogs/:id"
               element={
-                <Dialogs
+                <DialogsContainer
                   state={store.getState().dialogPage}
                   userName={store.getState().auth.userName}
                   dispatch={store.dispatch.bind(store)}

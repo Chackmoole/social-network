@@ -1,31 +1,10 @@
 import React from "react";
 import styles from "./Profile.module.css";
 import Avatar from "../Avatar/Avatar";
-import PropfileDescription from "../PropfileDescription/PropfileDescription";
+import ProfileDescription from "../ProfileDescription/ProfileDescription";
 import Posts from "../Posts/Posts";
-import {
-  addProfileMessageCreateAction,
-  updatePropfileMessagetextCreateAction,
-} from "../../redux/profileReducer";
 
-const Profile = ({ state, avatar, newProfileText, dispatch }) => {
-  const newPostElement = React.createRef();
-
-  const addPost = () => {
-    dispatch(
-      addProfileMessageCreateAction({ text: newPostElement.current.value })
-    );
-    dispatch(updatePropfileMessagetextCreateAction({ text: "" }));
-  };
-
-  const onPostChange = () => {
-    dispatch(
-      updatePropfileMessagetextCreateAction({
-        text: newPostElement.current.value,
-      })
-    );
-  };
-
+const Profile = ({ state, avatar, addPost, onPostChange }) => {
   return (
     <div className={styles.profile}>
       <img
@@ -34,18 +13,24 @@ const Profile = ({ state, avatar, newProfileText, dispatch }) => {
       />
       <div className={styles.profile__box}>
         <Avatar src={avatar} />
-        <PropfileDescription />
+        <ProfileDescription />
       </div>
       <div className={styles.block}>
         <h3>Сообщения:</h3>
         <input
           className={styles.input}
           placeholder="Введите сообщение"
-          ref={newPostElement}
-          onChange={onPostChange}
-          value={newProfileText}
+          value={state.newProfileText}
+          onChange={(e) => {
+            onPostChange({ text: e.target.value });
+          }}
         />
-        <button className={styles.button} onClick={addPost}>
+        <button
+          className={styles.button}
+          onClick={() => {
+            addPost({ text: state.newProfileText });
+          }}
+        >
           Отправить
         </button>
         <Posts state={state} src={avatar} />

@@ -2,32 +2,8 @@ import React from "react";
 import styles from "./Dialogs.module.css";
 import DialogsItem from "../DialogsItem/DialogsItem";
 import MessagesItem from "../MessagesItem/MessagesItem";
-import {
-  addDialogPostCreateAction,
-  updateDialogMessageTextChangeCreateAction,
-} from "../../redux/dialogReducer";
 
-const Dialogs = ({ state, userName, dispatch }) => {
-  const newMessageElement = React.createRef();
-
-  const addMessage = () => {
-    dispatch(
-      addDialogPostCreateAction({
-        text: newMessageElement.current.value,
-        author: userName,
-      })
-    );
-    dispatch(updateDialogMessageTextChangeCreateAction({ text: "" }));
-  };
-
-  const onMessageChange = () => {
-    dispatch(
-      updateDialogMessageTextChangeCreateAction({
-        text: newMessageElement.current.value,
-      })
-    );
-  };
-
+const Dialogs = ({ state, userName, addMessage, onMessageChange }) => {
   return (
     <section className={styles.dialogs}>
       <h2 className={styles.title}>Dialogs</h2>
@@ -58,10 +34,17 @@ const Dialogs = ({ state, userName, dispatch }) => {
       <div className={styles.dialogsBox}>
         <textarea
           className={styles.dialogsTextarea}
-          ref={newMessageElement}
-          onChange={onMessageChange}
+          value={state.newDialogText}
+          onChange={(e) => {
+            onMessageChange({ text: e.target.value });
+          }}
         ></textarea>
-        <button className={styles.dialogsButton} onClick={addMessage}>
+        <button
+          className={styles.dialogsButton}
+          onClick={() => {
+            addMessage({ text: state.newDialogText });
+          }}
+        >
           Отправить сообщение
         </button>
       </div>
